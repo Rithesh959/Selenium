@@ -1,0 +1,42 @@
+package section5;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FramesAssignment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver","C:\\RGUD\\chromedriver.exe" );
+		WebDriver driver = new ChromeDriver();
+		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		driver.get("https://the-internet.herokuapp.com/");
+		
+		driver.findElement(By.linkText("Nested Frames")).click();
+		
+	List	<WebElement> we =driver.findElements(By.tagName("frame"));
+		
+		System.out.println(we.size());
+		
+		driver.switchTo().frame(driver.findElement(By.name("frame-top")));
+		List	<WebElement> wes =driver.findElements(By.tagName("frame"));
+		System.out.println(wes.size());
+		driver.switchTo().frame(driver.findElement(By.name("frame-middle")));
+		
+		String text =driver.findElement(By.id("content")).getText();
+		
+		System.out.println(text);
+		
+		
+		
+		
+	}
+
+}

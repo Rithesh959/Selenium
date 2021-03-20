@@ -1,0 +1,51 @@
+package section5;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Assignment3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver","C:\\RGUD\\chromedriver.exe" );
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://www.rahulshettyacademy.com/AutomationPractice/");
+		
+		
+		driver.findElement(By.id("checkBoxOption2")).click();
+		WebElement checkbox = driver.findElement(By.xpath("//div[@id='checkbox-example']/fieldset/label[2]"));
+		
+		
+		String  text =checkbox.getText();
+		System.out.println(text);
+		
+		WebElement we = driver.findElement(By.id("dropdown-class-example"));
+		
+		
+		Select sel =new Select(we);
+		sel.selectByVisibleText(text);
+		
+       
+       
+       driver.findElement(By.xpath("//*[@placeholder='Enter Your Name']")).sendKeys(text);
+       
+       driver.findElement(By.id("alertbtn")).click();
+       
+       System.out.println(driver.switchTo().alert().getText().contains(text));
+       
+       driver.switchTo().alert().accept();
+       
+
+		
+		
+		
+		
+
+	}
+
+}

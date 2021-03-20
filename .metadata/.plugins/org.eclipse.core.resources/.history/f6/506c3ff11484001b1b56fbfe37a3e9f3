@@ -1,0 +1,71 @@
+package interviewQuestions;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Enterprice {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\RGUD\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		//System.setProperty("webdriver.chrome.driver", "C:\\RGUD\chromedriver.exe");
+		
+		driver.get("https://demo.opencart.com/");
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.linkText("iPhone")).click();
+		System.out.println(driver.findElement(By.xpath("//li/h2")).getText());
+		Thread.sleep(4000L);
+		driver.findElement(By.xpath("//span[text()='Currency']")).click();
+		
+		List<WebElement> currency =driver.findElements(By.xpath("//ul[@class='dropdown-menu']/li"));
+		
+		String[] currencyList = {"EUR","GBP"};
+		int j=0;
+		for(WebElement curr : currency)
+		{
+			
+			//int j=0;
+			
+			
+        
+			String atri= curr.getAttribute("name");
+			
+			
+		String currencyname= curr.getText();
+		
+		
+				
+			//System.out.println(curr.getText());
+			
+		
+		if(j<=0)
+		{
+							
+		driver.findElement(By.name(currencyList[j])).click();
+		j++;
+		Thread.sleep(4000L);
+		System.out.println(driver.findElement(By.xpath("//li/h2")).getText());
+		driver.findElement(By.xpath("//span[text()='Currency']")).click();
+		}
+		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

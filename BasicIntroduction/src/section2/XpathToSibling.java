@@ -1,0 +1,34 @@
+package section2;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class XpathToSibling {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+System.setProperty("webdriver.gecko.driver", "C:\\RGUD\\geckodriver.exe");
+		
+		
+		WebDriver driver=new FirefoxDriver();
+		
+		driver.get("http://qaclickacademy.com/index.php");
+		String str1=driver.findElement(By.xpath("//div[@class='container']/nav/ul/li[4]")).getText();
+		
+		
+		System.out.println(str1);
+		
+		String str2=driver.findElement(By.xpath("//div[@class='container']/nav/ul/li[4]/following-sibling::li[2]")).getText();
+
+		
+		System.out.println(str2);
+		
+	String str3=driver.findElement(By.xpath("//div[@class='container']/nav/ul/li[4]/parent::ul/li")).getText();
+
+		
+		System.out.println(str3);
+	}
+
+}

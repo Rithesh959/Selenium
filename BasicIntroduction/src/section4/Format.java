@@ -1,0 +1,21 @@
+package section4;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Format {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver","C:\\RGUD\\chromedriver.exe" );
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+
+		
+		driver.get(null);
+         driver.findElements(By.linkText("abc"));
+	}
+
+}

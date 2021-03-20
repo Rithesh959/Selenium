@@ -1,0 +1,12 @@
+INDEX VERSION 1.131+C:\Users\RGUD\OneDrive - Software AG\Desktop\Work\Selenium\.metadata\.plugins\org.eclipse.jdt.core
+2646010059.index
+3823697542.index
+186707676.index
+4129381710.index
+2326525739.index
+1170702730.index
+475233203.index
+3790097541.index
+2589367411.index
+1861251975.index
+838355811.index

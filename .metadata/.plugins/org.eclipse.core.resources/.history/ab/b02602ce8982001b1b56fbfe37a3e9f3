@@ -1,0 +1,29 @@
+package section3;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class EnabledDisabledVerification {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+  
+		System.setProperty("webdriver.chrome.driver","C:\\RGUD\\chromedriver.exe" );
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		
+		System.out.println(driver.findElement(By.name("ctl00$mainContent$view_date2")).isEnabled());
+		driver.findElement(By.cssSelector("input[value='RoundTrip']")).click();
+		driver.findElement(By.cssSelector("input[id='ctl00_mainContent_ddl_originStation1_CTXT']")).click();
+		Thread.sleep(4000L);
+		driver.findElement(By.cssSelector("[value='GOI']")).click();
+		driver.findElement(By.xpath("div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='HYD']")).click();
+		
+		System.out.println(driver.findElement(By.name("ctl00$mainContent$view_date2")).isEnabled());
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,61 @@
+package section4;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ExplicitWaitAndImplicitWait {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// TODO Auto-generated method stub
+
+		String[] names = { "Cauliflower", "Beetroot", "Carrot" };
+
+		System.setProperty("webdriver.chrome.driver", "C:\\RGUD\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/");
+
+		/*
+		 * for (String names1 : names) { for (int i = 0; i < products.size(); i++) {
+		 * String name = products.get(i).getText(); if (name.contains(names1)) {
+		 * 
+		 * driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click(
+		 * ); Thread.sleep(4000L); System.out.println(driver.findElements(By.
+		 * xpath("//button[text()='ADD TO CART']")).get(i)); break; } } }
+		 */
+ 
+		addItems(driver,names);
+		
+		
+	}
+
+	public void  static addItems(WebDriver driver, String[] names) {
+		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
+		List<String> al = Arrays.asList(names);
+		System.out.println(names.length + "-" + al.size());
+		int j = 0;
+		for (int i = 0; i < products.size(); i++) {
+			String[] name = products.get(i).getText().split("-");
+
+			if (al.contains(name[0].trim())) {
+
+				j++;
+				driver.findElements(By.xpath("//*[@class='product-action'] //button")).get(i).click();
+				// Thread.sleep(4000L);
+				System.out.println(driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i));
+				if (j == names.length) {
+					break;
+				}
+
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,68 @@
+package section5;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class AllAssignment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		System.setProperty("webdriver.chrome.driver","C:\\RGUD\\chromedriver.exe" );
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://www.rahulshettyacademy.com/AutomationPractice/");
+	//count the links in the given page
+	//count the links in the footer section  //limiting the scope of driver
+	//Links of only first column links in footer
+		//click on the column footer link and open
+		
+		
+		
+		
+		
+		
+	List<WebElement> links =driver.findElements(By.tagName("a"));
+	
+	System.out.println(links.size());
+	
+	WebElement footer= driver.findElement(By.id("gf-BIG"));
+	
+             System.out.println(footer.findElements(By.tagName("a")).size());
+             
+         //WebElement footercolum1=    footer.findElement(By.xpath("/table/tbody/tr/td[1]/ul[1]"));  otherway to get column 1 in footer
+	
+             WebElement footercol1= driver.findElement(By.xpath("//*[@id='gf-BIG']/table/tbody/tr/td[1]/ul[1]"));
+         	
+             System.out.println(footercol1.findElements(By.tagName("a")).size());
+             int i=1;
+             
+             while(footercol1.findElements(By.tagName("a")).size()>i)
+             {
+            	
+            	String clickonLink=Keys.chord(Keys.CONTROL,Keys.ENTER);
+            	 
+            	 //footer.findElement(By.xpath("/table/tbody/tr/td[i]/ul[1]")).sendKeys(clickonLink));
+            	 
+            	 footercol1.findElements(By.tagName("a")).get(i).sendKeys(clickonLink);
+            	 
+            	 i++;
+            	 
+            	 
+            	 
+            	 
+             }
+             
+             
+             
+             
+	}
+
+}

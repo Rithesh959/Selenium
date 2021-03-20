@@ -1,0 +1,52 @@
+package section5;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Assignment5 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver","C:\\RGUD\\chromedriver.exe" );
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://www.rahulshettyacademy.com/AutomationPractice/");
+		
+		WebElement auto1 = driver.findElement(By.id("ui-id-1"));
+		
+		
+		driver.findElement(By.id("autocomplete")).sendKeys("ind");
+		
+		Thread.sleep(3000L);
+		//driver.findElement(By.id("autocomplete")).sendKeys(Keys.DOWN);
+		
+		List<WebElement> auto =driver.findElements(By.xpath("//*[@class='ui-menu-item']/div"));
+		
+        Actions a = new Actions(driver);
+        
+        for(WebElement we : auto)
+        {
+        	System.out.println(we.getText());
+        	if(we.getText().equalsIgnoreCase("india"))
+        	{
+        		 a.moveToElement(we).click().build().perform();
+        		 driver.findElement(By.id("autocomplete")).getAttribute("value");
+        		 break;
+        	}
+        }
+        
+       // a.moveToElement(target)
+        
+        
+        
+        
+	}
+
+}

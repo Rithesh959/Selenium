@@ -1,0 +1,63 @@
+package section5;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CalenderHandle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver","C:\\RGUD\\chromedriver.exe" );
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://www.path2usa.com/travel-companions");
+		
+		driver.findElement(By.id("travel_date")).click();
+		
+		String[] presentMonth=driver.findElement(By.className("datepicker-switch")).getText().split(" ");
+		
+		String Month =presentMonth[0];
+		String Year=presentMonth[1];
+		List<WebElement> days = driver.findElements(By.className("day"));
+		
+		
+		
+		
+		for(int i=0;i<=11;i++)
+		{
+			
+			
+		if(Month.equalsIgnoreCase("April")&& Year.equalsIgnoreCase("2021"))
+		{
+			for(WebElement day : days)
+			{
+				String date =day.getText();
+				if(date.equalsIgnoreCase("20"))
+				{
+					day.click();
+				}
+				
+				
+			}
+		}
+		
+		driver.findElement(By.xpath("//table[@class=' table-condensed']/thead/tr[1]/th[3]")).click();
+		
+		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

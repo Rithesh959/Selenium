@@ -1,0 +1,71 @@
+package section3;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class E2E {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver","C:\\RGUD\\chromedriver.exe" );
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		
+		//click on the from drop down
+		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
+		
+		Thread.sleep(2000L);
+		
+		//select your location
+		
+		driver.findElement(By.cssSelector("a[value='DEL']")).click();
+		Thread.sleep(2000L);
+		
+		driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']")).click();
+		//driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']")).click();
+		Thread.sleep(10000L);
+		
+	     // driver.findElement(By.cssSelector("#flightSearchContainer")).click();
+	      
+		driver.findElement(By.cssSelector("#divpaxinfo")).click();
+		
+		int i=1;
+		do {
+			driver.findElement(By.cssSelector("#hrefIncAdt")).click();
+			i++;
+		}while(i<=2);
+		
+		
+		System.out.println(driver.findElement(By.cssSelector("#ctl00_mainContent_DropDownListCurrency")));
+		driver.findElement(By.cssSelector("#ctl00_mainContent_DropDownListCurrency"));
+		WebElement stDd =driver.findElement(By.cssSelector("#ctl00_mainContent_DropDownListCurrency"));
+		Select sel1 =new Select(stDd);
+		sel1.selectByValue("INR");
+		
+		//WebElement staticDropdwon =driver.findElement(By.cssSelector("#ctl00_mainContent_DropDownListCurrency"));
+		
+		//Select sel =new Select(staticDropdwon);
+		
+		//sel.selectByValue("AED");
+		
+		driver.findElement(By.cssSelector("[value='Search']")).click();
+		
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+}
